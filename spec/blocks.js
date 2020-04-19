@@ -42,11 +42,9 @@ describe('blocks', function() {
       world: 'world'
     };
 
-    var template = CompilerContext.compile(string);
-    var result = template(hash);
-
-    equal(
-      result,
+    shouldCompileTo(
+      string,
+      hash,
       '0. goodbye! 1. Goodbye! 2. GOODBYE! cruel world!',
       'The @index variable is used'
     );
