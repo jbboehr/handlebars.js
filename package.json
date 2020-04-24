@@ -1,7 +1,7 @@
 {
   "name": "handlebars",
   "barename": "handlebars",
-  "version": "4.7.6",
+  "version": "5.0.0-alpha.1",
   "description": "Handlebars provides the power necessary to let you build semantic templates effectively with no frustration",
   "homepage": "http://www.handlebarsjs.com/",
   "keywords": [
@@ -16,15 +16,14 @@
   },
   "author": "Yehuda Katz",
   "license": "MIT",
-  "readmeFilename": "README.md",
+  "readmeFilename": "README.markdown",
   "engines": {
-    "node": ">=0.4.7"
+    "node": ">=10"
   },
   "dependencies": {
-    "minimist": "^1.2.5",
     "neo-async": "^2.6.0",
     "source-map": "^0.6.1",
-    "wordwrap": "^1.0.0"
+    "yargs": "^15.3.1"
   },
   "optionalDependencies": {
     "uglify-js": "^3.1.4"
@@ -60,7 +59,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-webpack": "^1.0.8",
     "husky": "^3.1.0",
-    "jison": "~0.3.0",
+    "jison": "0.4.16",
     "lint-staged": "^9.5.0",
     "mocha": "^5",
     "mock-stdin": "^0.3.0",
@@ -97,7 +96,7 @@
   "jspm": {
     "main": "handlebars",
     "directories": {
-      "lib": "dist/amd"
+      "lib": "dist/cjs"
     },
     "buildConfig": {
       "minify": true

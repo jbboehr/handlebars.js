@@ -132,6 +132,23 @@ describe('compiler', function() {
       equal(Handlebars.compile('')(), '');
     });
 
+    it('throws on desupported options', function() {
+      shouldThrow(
+        function() {
+          Handlebars.compile('Dudes', { trackIds: true });
+        },
+        Error,
+        'TrackIds and stringParams are no longer supported. See Github #1145'
+      );
+      shouldThrow(
+        function() {
+          Handlebars.compile('Dudes', { stringParams: true });
+        },
+        Error,
+        'TrackIds and stringParams are no longer supported. See Github #1145'
+      );
+    });
+
     it('should not modify the options.data property(GH-1327)', function() {
       var options = { data: [{ a: 'foo' }, { a: 'bar' }] };
       Handlebars.compile('{{#each data}}{{@index}}:{{a}} {{/each}}', options)();
@@ -158,14 +175,14 @@ describe('compiler', function() {
           Handlebars.precompile(null);
         },
         Error,
-        'You must pass a string or Handlebars AST to Handlebars.precompile. You passed null'
+        'You must pass a string or Handlebars AST to Handlebars.compile. You passed null'
       );
       shouldThrow(
         function() {
           Handlebars.precompile({});
         },
         Error,
-        'You must pass a string or Handlebars AST to Handlebars.precompile. You passed [object Object]'
+        'You must pass a string or Handlebars AST to Handlebars.compile. You passed [object Object]'
       );
     });
 
